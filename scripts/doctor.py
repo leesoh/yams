@@ -56,7 +56,7 @@ def dict_to_md(dict):
     """
     print('[*] Parsing documentation for {0}'.format(dict['module_name']))
     module_md = '## ' + dict['module_name'] + '\n'
-    module_md += '**Author:** ' + dict['author'] + '\n\n'
+    module_md += '**Module Author:** ' + dict['module author'] + '\n\n'
     module_md += '**Last Updated:** ' + dict['updated'] + '\n\n'
     module_md += '**Original URL:** ' + dict['url'] + '\n\n'
     module_md += dict['description'] + '\n'
