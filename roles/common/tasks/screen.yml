@@ -5,4 +5,4 @@
   apt:
     name: screen
     update_cache: true
-		state: latest
+    state: latest
