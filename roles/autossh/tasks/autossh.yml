@@ -9,4 +9,4 @@
   apt:
     name: autossh
     update_cache: true
-		state: latest
+    state: latest
