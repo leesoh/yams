@@ -1,0 +1,15 @@
+---
+- name: Install CrackMapExec dependencies
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt: name={{ item }} state=installed update_cache=yes
+  with_items:
+    - libssl-dev
+    - libffi-dev
+    - python-dev
+    - build-essential
+
+- name: Install CrackMapExec
+  pip:
+    name: crackmapexec
+    virtualenv: "{{ venv_home }}/cme"

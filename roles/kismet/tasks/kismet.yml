@@ -1,0 +1,8 @@
+---
+- name: Install Kismet
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: kismet
+    update_cache: true
+		state: latest

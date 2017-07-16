@@ -1,0 +1,16 @@
+---
+# A headless hacking tool playbook for Debian-based systems.
+- hosts: yams_targets
+  remote_user: liam
+  roles:
+    - common
+    - crackmapexec
+    - empire
+    - fierce
+    - hashid
+    - kismet
+    - medusa
+    - metasploit
+    - onesixtyone
+    - responder
+    - tunnel-ssh-client

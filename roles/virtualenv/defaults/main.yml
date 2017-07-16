@@ -1,0 +1,2 @@
+# Where your virtualenv environments live
+venv_home: "{{ ansible_env.HOME }}/.virtualenvs"

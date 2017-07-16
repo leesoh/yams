@@ -1,0 +1,16 @@
+---
+- name: Install dependencies
+  become: true
+  package:
+    name: "{{ item }}"
+    state: latest
+
+  with_items:
+    - libnet-dns-perl
+
+- name: Install fierce
+  become: true
+  git:
+    repo: https://github.com/davidpepper/fierce-domain-scanner.git
+    dest: "{{ git_location }}/fierce-git"
+    update: yes

@@ -1,0 +1,13 @@
+---
+- name: Clone Empire
+  become: true
+  git:
+    repo: https://github.com/EmpireProject/Empire.git
+    dest: "{{ git_location }}/empire-git"
+    update: yes
+
+- name: Install Empire
+  become: true
+  environment:
+    SETUP_KEY: "RANDOM"
+  command: "{{ git_location }}/empire-git/setup/install.sh"

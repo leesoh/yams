@@ -1,0 +1,32 @@
+# Author: Liam Somerville
+# Date: 2017-05-22
+# Description: Creates an AutoSSH service that tunnels back to the IP specified in the service config. Thanks to https://www.everythingcli.org/ssh-tunnelling-for-fun-and-profit-autossh/
+---
+- name: "Create ssh config"
+  blockinfile:
+    create: yes
+    name: "{{ ansible_env.HOME }}/.ssh/config"
+    insertafter: EOF
+    block: |
+      Host {{ tunnel_name }}
+        HostName               {{ autossh_dest }}
+        User                   {{ autossh_user }}
+        Port                   {{ autossh_dest_port }}
+        IdentityFile           {{ ansible_env.HOME }}/.ssh/{{ ssh_keyfile }}
+        RemoteForward          {{ autossh_int_port }} localhost:22
+        ServerAliveInterval    30
+        ServerAliveCountMax    3
+        StrictHostKeyChecking  no
+
+- name: "Configure AutoSSH tunnel (22:{{ autossh_dest_port }}:{{ autossh_dest }}:{{ autossh_int_port }})"
+  become: true
+  template:
+    src: "../files/{{ tunnel_name }}.service.j2"
+    dest: "/etc/systemd/system/{{ tunnel_name }}.service"
+
+- name: "Set AutoSSH tunnel to auto-start"
+  become: true
+  service:
+    name: "{{ tunnel_name }}"
+    enabled: yes
+    state: restarted

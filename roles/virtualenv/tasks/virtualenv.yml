@@ -1,0 +1,23 @@
+---
+- name: Install virtualenv
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: virtualenv
+    update_cache: true
+		state: latest
+
+- name: Install virtualenvwrapper
+  become: true
+  pip:
+    name: virtualenvwrapper
+
+- name: Add virtualenvwrapper to .bashrc
+  when: ansible_user_shell == "/bin/bash"
+  blockinfile:
+    create: yes
+    name: "{{ ansible_env.HOME }}/.bashrc"
+    insertafter: EOF
+    block: |
+      export WORKON_HOME={{ venv_home }}
+      source /usr/local/bin/virtualenvwrapper.sh 2>/dev/null

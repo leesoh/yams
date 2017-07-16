@@ -1,0 +1,6 @@
+---
+- name: Install Nmap
+  become: true
+  package:
+    name: nmap
+    state: latest

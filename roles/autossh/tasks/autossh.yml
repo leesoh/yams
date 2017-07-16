@@ -1,0 +1,12 @@
+---
+# Author: Liam Somerville (@leesoh)
+# Date: 2017-05-21
+# Description: Installs AutoSSH
+
+- name: Install AutoSSH
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: autossh
+    update_cache: true
+		state: latest

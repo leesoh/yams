@@ -1,0 +1,9 @@
+{
+  "module_name": "Fake Maker",
+  "author": "your name (@wherever)",
+  "updated": "2017-06-10",
+  "category": "post-exploitation",
+  "description": "This is a shortish description describing what your tool does. It could wrap over a few lines, but it's hard to say for sure.",
+  "instructions": "1. Clone the repo\n2. Run a few things\n3. Sweat a bit\n4. Sacrifice a chicken.\nThen you should be mostly good to go.",
+  "url": "URL to the source"
+}

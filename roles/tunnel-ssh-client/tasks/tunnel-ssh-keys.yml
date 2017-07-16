@@ -1,0 +1,20 @@
+# Author: Liam Somerville
+# Date: 2017-05-22
+# Description: Generates or uploads key material for communications
+---
+- name: Create RSA keypair ({{ ssh_keyfile }})
+  when: priv_key is undefined
+  command: "ssh-keygen -t rsa -f {{ ansible_env.HOME }}/.ssh/{{ ssh_keyfile }} -N '' -q"
+
+- name: Copy public key from target
+  when: priv_key is undefined
+  fetch:
+    src: "{{ ansible_env.HOME }}/.ssh/{{ ssh_keyfile }}.pub"
+    dest: "roles/{{ tunnel_name }}/files/{{ ssh_keyfile }}.pub"
+    flat: yes
+
+- name: Upload private key to target ({{ priv_key }})
+  when: priv_key is defined
+  copy:
+    src: "{{ priv_key }}"
+    dest: "{{ ansible_env.HOME }}/.ssh/{{ ssh_keyfile }}"

@@ -1,0 +1,14 @@
+# Author: Liam Somerville
+# Date: 2017-05-29
+# Description: Installs Metasploit
+---
+- name: Download Metasploit installer
+  become: true
+  get_url:
+    url: https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb
+    dest: /tmp/msfinstall
+    mode: 0755
+
+- name: Install Metasploit
+  become: true
+  command: /tmp/msfinstall

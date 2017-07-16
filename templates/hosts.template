@@ -1,0 +1,3 @@
+# Defines groups of targets. Modify and save as "hosts". Playbooks can target hosts or groups.
+[yams_targets]
+<NAME> ansible_host=<IP> ansible_port=22

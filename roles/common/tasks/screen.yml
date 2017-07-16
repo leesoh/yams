@@ -1,0 +1,8 @@
+---
+- name: Install screen
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: screen
+    update_cache: true
+		state: latest

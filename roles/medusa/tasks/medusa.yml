@@ -1,0 +1,7 @@
+---
+- name: Install Medusa
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: medusa
+    update_cache: true

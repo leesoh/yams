@@ -1,0 +1,3 @@
+---
+- include: responder.yml
+  tags: responder

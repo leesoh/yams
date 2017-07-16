@@ -1,0 +1,11 @@
+---
+- name: Install pip
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: python-pip
+    update_cache: true
+    state: latest
+
+- name: Update pip
+  command: pip install --upgrade pip

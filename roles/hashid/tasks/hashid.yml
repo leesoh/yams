@@ -1,0 +1,7 @@
+---
+- name: Install hashID
+  become: true
+  git:
+    repo: https://github.com/psypanda/hashID.git
+    dest: "{{ git_location }}/hashid-git"
+    update: yes

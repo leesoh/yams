@@ -1,0 +1,28 @@
+- name: Installing dependencies
+  become: true
+  package:
+    name: "{{ item }}"
+    state: latest
+
+  with_items:
+    - build-essential
+    - zlib1g-dev
+
+- name: Build dependencies
+  become: true
+  apt:
+    pkg: openssl
+    state: build-dep
+
+- name: Cloning repo
+  become: true
+  git:
+    repo: https://github.com/rbsec/sslscan.git
+    dest: "{{ git_location }}/sslscan-git"
+    update: yes
+
+- name: Building sslscan
+  become: true
+  command: make static
+  args:
+    chdir: "{{ git_location }}/sslscan-git"

@@ -1,0 +1,7 @@
+---
+- name: Install Responder
+  become: true
+  git:
+    repo: https://github.com/lgandx/Responder.git
+    dest: "{{ git_location }}/responder-git"
+    update: yes

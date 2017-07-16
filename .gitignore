@@ -1,0 +1,5 @@
+*.retry
+*.pub
+hosts
+roles/private/*
+.vscode/*

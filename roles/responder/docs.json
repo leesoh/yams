@@ -1,0 +1,9 @@
+{
+  "module_name": "Responder",
+  "author": "liam somerville (@leesoh)",
+  "updated": "2017-06-10",
+  "category": "exploitation",
+  "description": "Responder is a LLMNR, NBT-NS and MDNS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication.",
+  "instructions": "Nothing special.",
+  "url": "https://github.com/lgandx/Responder"
+}

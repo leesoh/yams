@@ -1,0 +1,12 @@
+[Unit]
+ Description=Reverse tunnel to {{ autossh_dest }} over SSH
+ After=network.target
+
+[Service]
+ User={{ autossh_user }}
+ Environment="AUTOSSH_GATETIME=0"
+ ExecStart=/usr/bin/autossh -M 0 -NTq -F {{ ansible_env.HOME }}/.ssh/config {{ tunnel_name }}
+ Restart=always 
+
+[Install]
+ WantedBy=multi-user.target

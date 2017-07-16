@@ -1,0 +1,3 @@
+---
+- include: autossh.yml
+  tags: autossh

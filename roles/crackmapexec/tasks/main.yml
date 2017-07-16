@@ -1,0 +1,3 @@
+---
+- include: crackmapexec.yml
+  tags: crackmapexec

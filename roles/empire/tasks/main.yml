@@ -1,0 +1,3 @@
+---
+- include: empire.yml
+  tags: empire

@@ -1,0 +1,8 @@
+---
+- name: Install onesixtyone
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: onesixtyone
+    update_cache: true
+		state: latest

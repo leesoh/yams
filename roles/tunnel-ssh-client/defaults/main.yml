@@ -1,0 +1,14 @@
+# AutoSSH parameters
+server_alive_int: 30
+server_alive_count: 3
+
+# Tunnel service parameters
+autossh_dest: CHANGEME
+autossh_dest_port: 2222
+autossh_int_port: 31337
+autossh_user: CHANGEME
+tunnel_name: tunnel-ssh
+ssh_keyfile: id_rsa
+
+# Uncomment if you wish to provide the local path to your own private key for uploading
+#priv_key: ../files/id_rsa.pub
