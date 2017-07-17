@@ -1,7 +1,7 @@
 # YAMS Framework
 Welcome to Yet Another Modular Security Framework. YAMS is a collection of Ansible roles, some hacky scripts, and a large amount of standing on the shoulders of giants.
 
-YAMS is very much inspired by [The Penetration Tester's Framework](https://github.com/trustedsec/ptf) but attempts to build on that by  by reducing the dependence on custom shell scripting/Python, adding strong support for environment-specific targeting (OS type, architecture, etc.), and the ability to define a build script for easy deploy/rebuild.
+YAMS is very much inspired by [The Penetration Tester's Framework](https://github.com/trustedsec/ptf) but attempts to build on the great work done there by adding strong support for environment-specific targeting (OS type, architecture, etc.), leveraging Ansible's solid module support for common tasks (git, apt, yum, etc.), and adding the ability to define a build script for easy deploy/rebuild.
 
 # Getting Started
 Getting started with YAMS is pretty straightforward. First, you're going to need to [install Ansible](https://docs.ansible.com/ansible/intro_installation.html#installing-the-control-machine) on your control machine. This is the system you'll use to configure your targets.
