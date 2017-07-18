@@ -99,4 +99,18 @@ You might have heard of this one before...
 Responder is a LLMNR, NBT-NS and MDNS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication.
 
 # Reporting
+# Tunnels
+## SSH Tunnel
+**Module Author:** liam somerville (@leesoh)
+
+**Last Updated:** 2017-07-17
+
+**Original URL:** N/A
+
+Creates an AutoSSH-powered SSH service that will persistently call home to the specified IP/host.
+
+If priv_key is uncommented, it will upload the key to the target and use that to call home. If priv_key is not set, one will be generated and the corresponding public key downloaded to the files subfolder.
+
+Since the most likely use for this is some sort of onsite dropbox, you'll likely not want to use a private key you use for other systems.
+
 
