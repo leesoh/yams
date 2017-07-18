@@ -193,4 +193,7 @@ dependencies:
 ```
 
 # Module Documentation
-All module documentation can be found in [module_docs.md](https://github.com/leesoh/yams/blob/master/module_docs.md) until a better place is found.
+All module documentation can be found in [module_docs.md](module_docs.md) until a better place is found.
+
+# Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md)
