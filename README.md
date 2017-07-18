@@ -1,7 +1,7 @@
 # YAMS Framework
 Welcome to Yet Another Modular Security Framework. YAMS is a collection of Ansible roles, some hacky scripts, and a large amount of standing on the shoulders of giants.
 
-YAMS is very much inspired by [The Penetration Tester's Framework](https://github.com/trustedsec/ptf) but attempts to build on that by reducing the dependence on shell scripting/Python, adding strong support for environment-specific targeting (OS type, architecture, etc.), and the ability to define a build script for easy deploy/rebuild.
+YAMS is very much inspired by [The Penetration Tester's Framework](https://github.com/trustedsec/ptf) but attempts to build on the great work done there by adding strong support for environment-specific targeting (OS type, architecture, etc.), leveraging Ansible's solid module support for common tasks (git, apt, yum, etc.), and adding the ability to define a build script for easy deploy/rebuild.
 
 # Getting Started
 Getting started with YAMS is pretty straightforward. First, you're going to need to [install Ansible](https://docs.ansible.com/ansible/intro_installation.html#installing-the-control-machine) on your control machine. This is the system you'll use to configure your targets.
@@ -192,17 +192,8 @@ dependencies:
   - { role: autossh }
 ```
 
-# Contributing
-There's a ton of functionality in Ansible. If you're migrating from existing automation tools (e.g. shell scripts) a good rule of thumb is to assume it can all be done in Ansible with less headache and greater portability until proven otherwise.
-
-When building roles:
-
-* Aim for maximum compatibility. Don't use `apt` to install a Python module, if `pip` will accomplish the same.
-* When adding distribution-specific commands, ensure you use conditionals to scope it.
-* Make liberal use of inline documentation.
-* Store any environment-specific data (local git root, ssh key location, etc.) in `your-role/defaults/main.yml`.
-* Ensure that any dependencies are declared in `your-role/meta/main.yml` and that your dependency doesn't already exist under `roles/common/tasks`.
-* Submit pull requests to the `dev` branch.
-
 # Module Documentation
-All module documentation can be found in [module_docs.md](https://github.com/leesoh/yams/blob/master/module_docs.md) until a better place is found.
+All module documentation can be found in [module_docs.md](module_docs.md) until a better place is found.
+
+# Contributing
+See [CONTRIBUTING.md](CONTRIBUTING.md)

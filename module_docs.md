@@ -1,6 +1,6 @@
 # Intelligence Gathering
 ## Fierce
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -10,7 +10,7 @@ Fierce is a semi-lightweight scanner that helps locate non-contiguous IP space a
 
 # Vulnerability Analysis
 ## Kismet
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -19,7 +19,7 @@ Fierce is a semi-lightweight scanner that helps locate non-contiguous IP space a
 Kismet is a wireless network detector, sniffer, and intrusion detection system. Kismet works predominately with Wi-Fi (IEEE 802.11) networks, but can be expanded via plug-ins to handle other network types.
 
 ## onesixtyone
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -30,7 +30,7 @@ The approach taken by most SNMP scanners is to send the request, wait for n seco
 onesixtyone takes a different approach to SNMP scanning. It takes advantage of the fact that SNMP is a connectionless protocol and sends all SNMP requests as fast as it can. Then the scanner waits for responses to come back and logs them, in a fashion similar to Nmap ping sweeps.
 
 ## sslscan
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -40,7 +40,7 @@ sslscan tests SSL/TLS enabled services to discover supported cipher suites
 
 # Post Exploitation
 ## CrackMapExec
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -49,7 +49,7 @@ sslscan tests SSL/TLS enabled services to discover supported cipher suites
 CrackMapExec (a.k.a CME) is a post-exploitation tool that helps automate assessing the security of large Active Directory networks. Built with stealth in mind, CME follows the concept of 'Living off the Land': abusing built-in Active Directory features/protocols to achieve it's functionality and allowing it to evade most endpoint protection/IDS/IPS solutions.
 
 ## Empire
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -59,7 +59,7 @@ Empire is a pure PowerShell post-exploitation agent built on cryptologically-sec
 
 # Exploitation
 ## hashID
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -68,7 +68,7 @@ Empire is a pure PowerShell post-exploitation agent built on cryptologically-sec
 hashID is a tool written in Python 3 which supports the identification of over 220 unique hash types using regular expressions.
 
 ## Medusa
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -81,7 +81,7 @@ Medusa is intended to be a speedy, massively parallel, modular, login brute-forc
 * Modular design. Each service module exists as an independent .mod file. This means that no modifications are necessary to the core application in order to extend the supported list of services for brute-forcing.
 
 ## Metasploit
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -90,7 +90,7 @@ Medusa is intended to be a speedy, massively parallel, modular, login brute-forc
 You might have heard of this one before...
 
 ## Responder
-**Author:** liam somerville (@leesoh)
+**Module Author:** liam somerville (@leesoh)
 
 **Last Updated:** 2017-06-10
 
@@ -99,4 +99,18 @@ You might have heard of this one before...
 Responder is a LLMNR, NBT-NS and MDNS poisoner, with built-in HTTP/SMB/MSSQL/FTP/LDAP rogue authentication server supporting NTLMv1/NTLMv2/LMv2, Extended Security NTLMSSP and Basic HTTP authentication.
 
 # Reporting
+# Tunnels
+## SSH Tunnel
+**Module Author:** liam somerville (@leesoh)
+
+**Last Updated:** 2017-07-17
+
+**Original URL:** N/A
+
+Creates an AutoSSH-powered SSH service that will persistently call home to the specified IP/host.
+
+If priv_key is uncommented, it will upload the key to the target and use that to call home. If priv_key is not set, one will be generated and the corresponding public key downloaded to the files subfolder.
+
+Since the most likely use for this is some sort of onsite dropbox, you'll likely not want to use a private key you use for other systems.
+
 

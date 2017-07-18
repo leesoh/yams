@@ -5,17 +5,18 @@ single Markdown file. Each module is categorized using PTES phases.
 
 import json
 import os
-import sys
 
-root_dir = sys.path[0]
+# Get the parent directory
+root_dir = os.path.dirname(os.getcwd())
 doc_filename = 'docs.json'
-module_doc = 'module_docs.md'
+module_doc = os.path.join(root_dir, 'module_docs.md')
 doc_dic = {
     'intelligence-gathering': [],
     'vulnerability-analysis': [],
     'post-exploitation': [],
     'exploitation': [],
-    'reporting': []
+    'reporting': [],
+    'tunnels': []
 }
 
 
@@ -56,7 +57,7 @@ def dict_to_md(dict):
     """
     print('[*] Parsing documentation for {0}'.format(dict['module_name']))
     module_md = '## ' + dict['module_name'] + '\n'
-    module_md += '**Author:** ' + dict['author'] + '\n\n'
+    module_md += '**Module Author:** ' + dict['module author'] + '\n\n'
     module_md += '**Last Updated:** ' + dict['updated'] + '\n\n'
     module_md += '**Original URL:** ' + dict['url'] + '\n\n'
     module_md += dict['description'] + '\n'
@@ -89,6 +90,8 @@ def main():
                     doc_dic['post-exploitation'].append(dict)
                 elif dict['category'] == 'reporting':
                     doc_dic['reporting'].append(dict)
+                elif dict['category'] == 'tunnels':
+                    doc_dic['tunnels'].append(dict)
     generate_doc(doc_dic)
 
 
