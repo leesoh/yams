@@ -1,8 +1,10 @@
 ---
 - name: Install dependencies
   become: true
-  package:
+  when: ansible_os_family ==  "Debian"
+  apt:
     name: "{{ item }}"
+    update_cache: true
     state: latest
 
   with_items:

@@ -1,6 +1,8 @@
 ---
 - name: Install Nmap
   become: true
-  package:
+  when: ansible_os_family ==  "Debian"
+  apt:
     name: nmap
+    update_cache: true
     state: latest
