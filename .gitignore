@@ -1,5 +1,9 @@
+# Ansible
 *.retry
+
+# YAMS
 *.pub
 hosts
-roles/private/*
+
+# IDE
 .vscode/*
