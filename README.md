@@ -21,7 +21,7 @@ Once you've cloned the YAMS repo, you'll need to make a couple of changes:
 
 That's it! You can either tweak the sample `sample.yml` playbook to provision your first machine, or build your own.
 
-Once you're happy with it, you can deploy your configuration using `ansible-playbook <playbook_name>.yml`.
+Once you're happy with it, you can deploy your configuration using `ansible-playbook <playbook_name>.yml [--ask-become-pass]`.
 
 ## Keeping Things Current
 Ansible makes it pretty simple to keep a role up to date. Once you've got things the way you want them, just make sure that you're making good use of `update: yes` and `state: latest` and then just re-run the playbook.
