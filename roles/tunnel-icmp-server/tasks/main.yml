@@ -1,3 +1,0 @@
----
-- include: tunnel-icmp-server.yml
-  tags: tunnel-icmp-server
