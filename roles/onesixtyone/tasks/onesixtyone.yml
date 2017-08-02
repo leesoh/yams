@@ -4,5 +4,5 @@
   when: ansible_os_family ==  "Debian"
   apt:
     name: onesixtyone
-    update_cache: true
-		state: latest
+    update_cache: yes
+    state: latest

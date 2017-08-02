@@ -7,5 +7,5 @@
   when: ansible_os_family ==  "Debian"
   apt:
     name: stunnel4
-    update_cache: true
+    update_cache: yes
 		state: latest

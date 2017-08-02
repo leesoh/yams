@@ -4,7 +4,7 @@
   when: ansible_os_family ==  "Debian"
   apt:
     name: python-pip
-    update_cache: true
+    update_cache: yes
     state: latest
 
 - name: Update pip

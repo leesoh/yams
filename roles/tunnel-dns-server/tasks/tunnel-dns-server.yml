@@ -7,7 +7,7 @@
   when: ansible_os_family ==  "Debian"
   apt:
     name: ruby-dev
-    update_cache: true
+    update_cache: yes
 		state: latest
 
 - name: Clone dnscat2

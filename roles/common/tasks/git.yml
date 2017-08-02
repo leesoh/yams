@@ -4,5 +4,5 @@
   when: ansible_os_family ==  "Debian"
   apt:
     name: git
-    update_cache: true
+    update_cache: yes
     state: latest

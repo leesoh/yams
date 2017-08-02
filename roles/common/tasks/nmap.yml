@@ -4,5 +4,5 @@
   when: ansible_os_family ==  "Debian"
   apt:
     name: nmap
-    update_cache: true
+    update_cache: yes
     state: latest

@@ -3,7 +3,7 @@
   when: ansible_os_family ==  "Debian"
   apt:
     name: "{{ item }}"
-    update_cache: true
+    update_cache: yes
     state: latest
 
   with_items:

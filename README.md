@@ -41,7 +41,7 @@ Ansible makes it pretty simple to keep a role up to date. Once you've got things
   when: ansible_os_family ==  "Debian"
   apt:
     name: python-pip
-    update_cache: true
+    update_cache: yes
     state: latest
 ```
 
@@ -81,7 +81,7 @@ Roles can be simple:
   when: ansible_os_family ==  "Debian"
   apt:
     name: medusa
-    update_cache: true
+    update_cache: yes
 ```
 
 Or a bit more involved:
