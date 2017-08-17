@@ -2,6 +2,11 @@
 # Date: 2017-05-22
 # Description: Creates an AutoSSH service that tunnels back to the IP specified in the service config. Thanks to https://www.everythingcli.org/ssh-tunnelling-for-fun-and-profit-autossh/
 ---
+- file:
+    path: "{{ ansible_env.HOME }}/.ssh"
+    state: directory
+    mode: 0755
+
 - name: "Create ssh config"
   blockinfile:
     create: yes
