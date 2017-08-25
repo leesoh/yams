@@ -1,9 +1,9 @@
 {
   "module_name": "davtest",
-  "module author": "CHANGEME <@CHANGEME>",
-  "updated": "CHANGEME",
-  "category": "[intelligence-gathering|vulnerability-analysis|exploitation|post-exploitation|reporting|tunnels]",
-  "description": "CHANGEME",
+  "module author": "Liam Somerville <@leesoh>",
+  "updated": "2017-08-24",
+  "category": "vulnerability-analysis",
+  "description": "This program attempts to exploit WebDAV enabled servers by:\n - attempting to create a new directory (MKCOL)\n - attempting to put test files of various programming langauges (PUT)\n - optionally attempt to put files with .txt extension, then move to executable (MOVE)\n - check if files executed or were uploaded properly\n - optionally upload a backdoor/shell file for languages which execute",
   "instructions": "Nothing special.",
-  "url": "https://CHANGEME"
+  "url": "https://github.com/cldrn/davtest"
 }
