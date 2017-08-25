@@ -5,6 +5,7 @@
   roles:
     - common
     - crackmapexec
+    - davtest
     - empire
     - fierce
     - hashid

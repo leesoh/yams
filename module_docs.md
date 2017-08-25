@@ -9,6 +9,20 @@
 Fierce is a semi-lightweight scanner that helps locate non-contiguous IP space and hostnames against specified domains. It's really meant as a pre-cursor to nmap, unicornscan, nessus, nikto, etc, since all of those require that you already know what IP space you are looking for. This does not perform exploitation and does not scan the whole internet indiscriminately. It is meant specifically to locate likely targets both inside and outside a corporate network. Because it uses DNS primarily you will often find mis-configured networks that leak internal address space. That's especially useful in targeted malware.
 
 # Vulnerability Analysis
+## davtest
+**Module Author:** Liam Somerville <@leesoh>
+
+**Last Updated:** 2017-08-24
+
+**Original URL:** https://github.com/cldrn/davtest
+
+This program attempts to exploit WebDAV enabled servers by:
+ - attempting to create a new directory (MKCOL)
+ - attempting to put test files of various programming langauges (PUT)
+ - optionally attempt to put files with .txt extension, then move to executable (MOVE)
+ - check if files executed or were uploaded properly
+ - optionally upload a backdoor/shell file for languages which execute
+
 ## Kismet
 **Module Author:** liam somerville (@leesoh)
 
@@ -100,6 +114,15 @@ Responder is a LLMNR, NBT-NS and MDNS poisoner, with built-in HTTP/SMB/MSSQL/FTP
 
 # Reporting
 # Tunnels
+## DNS Tunnel
+**Module Author:** liam somerville (@leesoh)
+
+**Last Updated:** 2017-07-25
+
+**Original URL:** N/A
+
+Creates an dnscat2-powered service that will persistently call home to the specified host.
+
 ## SSH Tunnel
 **Module Author:** liam somerville (@leesoh)
 
