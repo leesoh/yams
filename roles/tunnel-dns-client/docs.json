@@ -1,6 +1,6 @@
 {
-  "module_name": "DNS Tunnel",
-  "module author": "liam somerville (@leesoh)",
+  "role name": "DNS Tunnel",
+  "role author": "liam somerville (@leesoh)",
   "updated": "2017-07-25",
   "category": "tunnels",
   "description": "Creates an dnscat2-powered service that will persistently call home to the specified host.",

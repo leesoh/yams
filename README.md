@@ -128,6 +128,8 @@ The `main.yml` file under `tasks` is what is run when a role is added to a playb
 
 This may seem a bit silly but doing it this way allows us to selectively run roles from the playbook using `ansible-playbook your-playbook.yml --tags "your-role,another-role"`.
 
+Using the `newmodule` command in YMS, you can create a basic role skeleton.
+
 ## Common Plays
 Here's how to do some common operations using Ansible. You can get a full list of supported modules [here](https://docs.ansible.com/ansible/list_of_all_modules.html).
 
@@ -198,7 +200,7 @@ dependencies:
 ```
 
 # Module Documentation
-All module documentation can be found in [module_docs.md](module_docs.md) until a better place is found.
+All module documentation can be found in either the module-level `docs.json` files, or using YMS.
 
 # Contributing
 See [CONTRIBUTING.md](CONTRIBUTING.md)

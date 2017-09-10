@@ -1,6 +1,6 @@
 {
-  "module_name": "onesixtyone",
-  "module author": "liam somerville (@leesoh)",
+  "role name": "onesixtyone",
+  "role author": "liam somerville (@leesoh)",
   "updated": "2017-06-10",
   "category": "vulnerability-analysis",
   "description": "The approach taken by most SNMP scanners is to send the request, wait for n seconds and assume that the community string is invalid. If only 1 of every hundred scanned IP addresses responds to the SNMP request, the scanner will spend 99*n seconds waiting for replies that will never come. This makes traditional SNMP scanners very inefficient.\n\nonesixtyone takes a different approach to SNMP scanning. It takes advantage of the fact that SNMP is a connectionless protocol and sends all SNMP requests as fast as it can. Then the scanner waits for responses to come back and logs them, in a fashion similar to Nmap ping sweeps.",

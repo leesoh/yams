@@ -1,6 +1,6 @@
 {
-  "module_name": "Metasploit",
-  "module author": "liam somerville (@leesoh)",
+  "role name": "Metasploit",
+  "role author": "liam somerville (@leesoh)",
   "updated": "2017-06-10",
   "category": "exploitation",
   "description": "You might have heard of this one before...",

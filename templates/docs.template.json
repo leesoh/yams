@@ -1,6 +1,6 @@
 {
-  "module_name": "Fake Maker",
-  "module author": "your name (@wherever)",
+  "role name": "Fake Maker",
+  "role author": "your name (@wherever)",
   "updated": "2017-06-10",
   "category": "post-exploitation",
   "description": "This is a shortish description describing what your tool does. It could wrap over a few lines, but it's hard to say for sure.",

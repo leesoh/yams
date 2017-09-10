@@ -1,6 +1,6 @@
 {
-  "module_name": "sslscan",
-  "module author": "liam somerville (@leesoh)",
+  "role name": "sslscan",
+  "role author": "liam somerville (@leesoh)",
   "updated": "2017-06-10",
   "category": "vulnerability-analysis",
   "description": "sslscan tests SSL/TLS enabled services to discover supported cipher suites",

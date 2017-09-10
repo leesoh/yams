@@ -1,6 +1,6 @@
 {
-  "module_name": "SSH Tunnel",
-  "module author": "liam somerville (@leesoh)",
+  "role name": "SSH Tunnel",
+  "role author": "liam somerville (@leesoh)",
   "updated": "2017-07-17",
   "category": "tunnels",
   "description": "Creates an AutoSSH-powered SSH service that will persistently call home to the specified IP/host.\n\nIf priv_key is uncommented, it will upload the key to the target and use that to call home. If priv_key is not set, one will be generated and the corresponding public key downloaded to the files subfolder.\n\nSince the most likely use for this is some sort of onsite dropbox, you'll likely not want to use a private key you use for other systems.",
