@@ -22,7 +22,7 @@ from datetime import date
 import texttable
 
 # TODO: Evaluate moving these to NewModule
-yams_dir = Path.cwd().parent
+yams_dir = Path.cwd()
 module_dir = Path(yams_dir, 'roles')
 
 # Name of role-level documents
@@ -175,6 +175,9 @@ class SearchModule(object):
             - Print a list of modules (_create_summary_table)
             - Print a category of modules (_create_summary_table)
             - Print all modules (_format_modules)
+        * This really should initalize, create the index, but also create a
+          list of modules and categories to be used by various methods.
+        * Organize methods better into helpers and doers
     """
 
     def __init__(self):
@@ -192,8 +195,8 @@ class SearchModule(object):
 
         """
         table = texttable.Texttable(max_width=80)  # Create table
-        table.set_deco(table.BORDER)               # Set decoration
-        table.set_chars(['-', '|', '+', '-'])      # Divider symbols: h,v,c,h
+        table.set_deco(table.BORDER)  # Set decoration
+        table.set_chars(['-', '|', '+', '-'])  # Divider symbols: h,v,c,h
         table.set_cols_align(['r', 'l'])
 
         for key, value in module_dict.items():
@@ -243,31 +246,18 @@ class SearchModule(object):
 
         if isinstance(modules, list):
             for module in modules:
-                module_path = self._format_path(module['role name'],
+                module_path = self._format_path(module['name'],
                                                 module['category'])
                 table.add_row([module_path, module['description']])
 
         elif isinstance(modules, dict):
             for key, value in modules.items():
-                module_path = self._format_path(value['role name'],
+                module_path = self._format_path(value['name'],
                                                 value['category'])
                 table.add_row([module_path, value['description']])
 
         module_table = '\n' + table.draw() + '\n'
         return module_table
-
-    def _format_module_name(self, module_name):
-        """Strip spaces and caps from module name for search and display.
-
-        Args:
-            module_name (str): Module name
-
-        Returns:
-            Module name, minus spaces and caps.
-
-        """
-        module_name = module_name.replace(' ', '_').lower()
-        return module_name
 
     def _format_path(self, module, category):
         """Format a module/category for display.
@@ -280,8 +270,7 @@ class SearchModule(object):
             Returns the values in 'category/module' format.
 
         """
-        module_name = self._format_module_name(module)
-        module_path = f'{category}/{module_name}'
+        module_path = f'{category}/{module}'
         return module_path
 
     def update_index(self):
@@ -305,10 +294,8 @@ class SearchModule(object):
         for doc in module_docs:
             with open(doc, 'r') as d:
                 module_dict = json.load(d)
-                module_name = self._format_module_name(
-                    module_dict['role name'])
+                module_name = module_dict['name']
                 category = module_dict['category']
-
                 if category not in self.module_index:
                     self.module_index[category] = {}
 
@@ -385,11 +372,13 @@ class SearchModule(object):
 
         for category, modules in self.module_index.items():
             for module_name, attributes in modules.items():
-                module_name = self._format_module_name(module_name)
                 description = attributes['description'].lower()
                 if text in category or text in module_name or text in description:
                     matches.append(attributes)
-        print('\nSearch Results:\n' + self._create_summary_table(matches))
+        if matches:
+            print('\nSearch Results:\n' + self._create_summary_table(matches))
+        else:
+            print('Nothing found.')
 
     def get_categories(self):
         """Create category/module list for searching.
@@ -433,13 +422,13 @@ class NewModule(cmd.Cmd, object):
 
         # Defines the required information for new module
         self.settings = {
-            'role name': {
-                'name': 'role name',
+            'name': {
+                'name': 'name',
                 'value': '',
                 'description': 'Name of your role'
             },
-            'role author': {
-                'name': 'role author',
+            'author': {
+                'name': 'author',
                 'value': '',
                 'description': 'Your name <@yourhandle>'
             },
@@ -457,11 +446,6 @@ class NewModule(cmd.Cmd, object):
                 'name': 'description',
                 'value': '',
                 'description': 'A brief (~20-word) description of your module.'
-            },
-            'instructions': {
-                'name': 'instructions',
-                'value': '',
-                'description': ''
             },
             'url': {
                 'name': 'url',
@@ -498,10 +482,10 @@ class NewModule(cmd.Cmd, object):
         # Divider symbols: h,v,c,h
         table.set_chars(['-', '|', '+', '-'])
 
-        # TODO: Title case
         # # Arbitrary selection here, could be any key
-
-        table.header(settings_dict['role name'].keys())
+        heading = settings_dict['name'].keys()
+        heading = [f'{item}'.title() for item in heading]  # Capitalize
+        table.header(heading)
 
         for setting, item in settings_dict.items():
             name = item['name'].title()
@@ -533,8 +517,6 @@ class NewModule(cmd.Cmd, object):
             name (str): name of module
 
         """
-        name = name.replace(' ', '-')  # Replace spaces to avoid messy paths
-
         # Directories
         role_dir = Path(yams_dir, 'roles', name)  # /roles/<name>
         tasks_dir = Path(role_dir, 'tasks')  # /roles/<name>/tasks
@@ -570,9 +552,15 @@ class NewModule(cmd.Cmd, object):
         name_yml_name.write_text(name_yml_content)
 
         #  /roles/<name>/docs.json
+        #  We only want to grab the name and value from settings
+        docs = {}
+        for key, value in self.settings.items():
+            setting = {value['name']: value['value']}
+            docs.update(setting)
+
         docs_json_name = Path(role_dir, role_docs_name)
         with open(docs_json_name, 'w') as f:
-            json.dump(self.settings, f, indent=2)
+            json.dump(docs, f, indent=2)
 
     def do_set(self, line):
         """Handle set <setting> input.
@@ -583,22 +571,16 @@ class NewModule(cmd.Cmd, object):
             line (str): user-supplied input
 
         """
-        # TODO: This is ugly. Spaces in keys makes splitting setting/value
-        # hard.
-        if line.startswith('role name'):
-            self._set_setting('role name', line)
-        if line.startswith('role author'):
-            self._set_setting('role author', line)
-        if line.startswith('updated'):
-            self._set_setting('updated', line)
-        if line.startswith('category'):
-            self._set_setting('category', line)
-        if line.startswith('description'):
-            self._set_setting('description', line)
-        if line.startswith('instructions'):
-            self._set_setting('instructions', line)
-        if line.startswith('url'):
-            self._set_setting('url', line)
+        line = line.lower()
+
+        # The first word is the setting, the rest the value
+        line = line.split(' ', 1)
+        setting_name = line[0]
+        setting_value = line[1]
+        if setting_name in self.settings:
+            self._set_setting(setting_name, setting_value)
+        else:
+            print('Unknown setting')
 
     def complete_set(self, text, line, begidx, endidx):
         """Handle completion for set.
@@ -614,8 +596,7 @@ class NewModule(cmd.Cmd, object):
 
         """
         settings_list = [
-            'role name', 'role author', 'updated', 'category', 'description',
-            'instructions', 'url'
+            'name', 'author', 'updated', 'category', 'description', 'url'
         ]
         completions = [i for i in settings_list if i.startswith(text.lower())]
         return completions
@@ -633,7 +614,7 @@ class NewModule(cmd.Cmd, object):
             line (str): user-supplied input
 
         """
-        self._create_dirs(self.settings['role name'])
+        self._create_dirs(self.settings['name']['value'])
 
     def do_main(self, line):
         """Exit to Main.

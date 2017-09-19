@@ -1,9 +1,8 @@
 {
-  "role name": "Metasploit",
-  "role author": "liam somerville (@leesoh)",
+  "name": "Metasploit",
+  "author": "liam somerville (@leesoh)",
   "updated": "2017-06-10",
   "category": "exploitation",
-  "description": "You might have heard of this one before...",
-  "instructions": "Nothing special",
+  "description": "Metasploit penetration testing software helps you safely simulate real-world attacks on your network to train your security team to spot and stop real attacks.",
   "url": "https://metasploit.com/"
 }

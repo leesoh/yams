@@ -1,9 +1,8 @@
 {
-  "role name": "Kismet",
-  "role author": "liam somerville (@leesoh)",
+  "name": "Kismet",
+  "author": "liam somerville (@leesoh)",
   "updated": "2017-06-10",
   "category": "vulnerability-analysis",
-  "description": "Kismet is a wireless network detector, sniffer, and intrusion detection system. Kismet works predominately with Wi-Fi (IEEE 802.11) networks, but can be expanded via plug-ins to handle other network types.",
-  "instructions": "Nothing special",
+  "description": "Kismet is a wireless network detector, sniffer, and intrusion detection system.",
   "url": "https://www.kismetwireless.net/index.shtml"
 }

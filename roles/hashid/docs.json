@@ -1,9 +1,8 @@
 {
-  "role name": "hashID",
-  "role author": "liam somerville (@leesoh)",
+  "name": "hashID",
+  "author": "liam somerville (@leesoh)",
   "updated": "2017-06-10",
   "category": "exploitation",
-  "description": "hashID is a tool written in Python 3 which supports the identification of over 220 unique hash types using regular expressions.",
-  "instructions": "Nothing special",
+  "description": "hashID identifies over 220 unique hash types using regular expressions.",
   "url": "https://github.com/psypanda/hashID"
 }

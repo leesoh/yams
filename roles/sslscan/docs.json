@@ -1,9 +1,8 @@
 {
-  "role name": "sslscan",
-  "role author": "liam somerville (@leesoh)",
+  "name": "sslscan",
+  "author": "liam somerville (@leesoh)",
   "updated": "2017-06-10",
   "category": "vulnerability-analysis",
-  "description": "sslscan tests SSL/TLS enabled services to discover supported cipher suites",
-  "instructions": "Nothing special.",
+  "description": "sslscan tests SSL/TLS enabled services to discover supported cipher suites.",
   "url": "https://github.com/rbsec/sslscan.git"
 }
