@@ -6,8 +6,14 @@
     dest: "{{ git_location }}/empire-git"
     update: yes
 
+- name: Check for existing Empire database
+  stat:
+    path: "{{ git_location }}/empire-git/data/empire.db"
+  register: stat_result
+
 - name: Install Empire
   become: true
+  when: stat_result.stat.exists == False
   environment:
     SETUP_KEY: "RANDOM"
   command: "{{ git_location }}/empire-git/setup/install.sh"
