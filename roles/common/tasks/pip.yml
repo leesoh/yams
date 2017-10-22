@@ -3,9 +3,11 @@
   become: true
   when: ansible_os_family ==  "Debian"
   apt:
-    name: python-pip
+    name: python3-pip
     update_cache: yes
     state: latest
 
 - name: Update pip
-  command: pip install --upgrade pip
+  pip:
+    name: pip
+    state: latest
