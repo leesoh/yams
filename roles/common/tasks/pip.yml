@@ -1,5 +1,5 @@
 ---
-- name: Install pip
+- name: Install pip3
   become: true
   when: ansible_os_family ==  "Debian"
   apt:
@@ -7,7 +7,22 @@
     update_cache: yes
     state: latest
 
-- name: Update pip
+- name: Update pip3
   pip:
+    executable: pip3
+    name: pip
+    state: latest
+
+- name: Install pip2
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: python-pip
+    update_cache: yes
+    state: latest
+
+- name: Update pip2
+  pip:
+    executable: pip2
     name: pip
     state: latest
