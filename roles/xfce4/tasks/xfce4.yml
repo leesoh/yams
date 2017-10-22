@@ -1,0 +1,40 @@
+---
+- name: Install NumixBlue theme
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: numix-blue-gtk-theme
+    update_cache: yes
+    state: latest
+
+- name: Set desktop theme to NumixBlue
+  command: xfconf-query -c xsettings -p /Net/ThemeName -s "NumixBlue"
+
+- name: Set window manager theme
+  command: xfconf-query -c xfwm4 -p /general/theme -s "NumixBlue"
+
+- name: Hide desktop icons
+  command: "xfconf-query -c xfce4-desktop -np '/desktop-icons/style' -t 'int' -s '0'"
+
+- name: Embiggen top panel
+  command: xfconf-query --channel xfce4-panel -p /panels/panel-0/size -s 36
+
+- name: Configure terminal settings
+  copy:
+    src: ../files/terminalrc
+    dest: "{{ ansible_env.HOME }}/.config/xfce4/terminal/"
+    force: no
+
+- name: Create wallpaper directory
+  file:
+    path: "{{ ansible_env.HOME }}/.local/share/xfce4/backdrops"
+    recurse: yes
+    state: directory
+
+- name: Download suitably dystopian wallpaper
+  get_url:
+    url: http://www.simonstalenhag.se/bilderbig/by_gathering3_2880.jpg
+    dest: "{{ ansible_env.HOME }}/.local/share/xfce4/backdrops/by_gathering.jpg"
+
+- name: Set wallpaper
+  command: "xfconf-query --channel xfce4-desktop --property /backdrop/screen0/monitor0/workspace0/last-image --set {{ ansible_env.HOME }}/.local/share/xfce4/backdrops/by_gathering.jpg"

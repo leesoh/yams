@@ -1,0 +1,3 @@
+---
+- include: xfce4.yml
+  tags: xfce4
