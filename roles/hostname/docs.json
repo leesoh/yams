@@ -1,0 +1,8 @@
+{
+  "name": "hostname",
+  "author": "liam somerville <@leesoh>",
+  "updated": "2017-10-22",
+  "category": "os",
+  "description": "update the hostname",
+  "url": "http://derpturkey.com/setting-host-with-ansible-in-ubuntu/"
+}
