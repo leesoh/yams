@@ -525,7 +525,7 @@ class NewModule(cmd.Cmd, object):
         #   /roles/<name>/tasks/main.yml
         main_yml_content = textwrap.dedent(f"""\
         ---
-        - include: {name}.yml
+        - include_tasks: {name}.yml
           tags: {name}
         """)
 

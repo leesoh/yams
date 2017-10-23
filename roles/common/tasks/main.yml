@@ -1,11 +1,11 @@
 ---
-- include: nmap.yml
+- include_tasks: nmap.yml
   tags: nmap,common
-- include: git.yml
+- include_tasks: git.yml
   tags: git,common
-- include: pip.yml
+- include_tasks: pip.yml
   tags: pip,common
-- include: screen.yml
+- include_tasks: screen.yml
   tags: screen,common
-- include: curl.yml
+- include_tasks: curl.yml
   tags: curl,common

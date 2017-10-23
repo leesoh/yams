@@ -1,3 +1,3 @@
 ---
-- include: fierce.yml
+- include_tasks: fierce.yml
   tags: fierce

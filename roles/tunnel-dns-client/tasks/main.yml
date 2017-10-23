@@ -1,6 +1,6 @@
 ---
-- include: tunnel-dns-client.yml
+- include_tasks: tunnel-dns-client.yml
   tags: tunnel-dns-client
 
-- include: tunnel-dns-client-service.yml
+- include_tasks: tunnel-dns-client-service.yml
   tags: tunnel-dns-client

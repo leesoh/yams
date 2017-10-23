@@ -1,6 +1,6 @@
 ---
-- include: tunnel-ssh-service.yml
+- include_tasks: tunnel-ssh-service.yml
   tags: tunnel-ssh-client
 
-- include: tunnel-ssh-keys.yml
+- include_tasks: tunnel-ssh-keys.yml
   tags: tunnel-ssh-client
