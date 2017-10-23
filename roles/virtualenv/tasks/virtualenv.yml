@@ -21,3 +21,13 @@
     block: |
       export WORKON_HOME={{ venv_home }}
       source /usr/local/bin/virtualenvwrapper.sh 2>/dev/null
+
+- name: Add virtualenvwrapper to .zshrc
+  when: ansible_user_shell == "/usr/bin/zsh"
+  blockinfile:
+    create: yes
+    name: "{{ ansible_env.HOME }}/.zshrc"
+    insertafter: EOF
+    block: |
+      export WORKON_HOME={{ venv_home }}
+      source /usr/local/bin/virtualenvwrapper.sh 2>/dev/null
