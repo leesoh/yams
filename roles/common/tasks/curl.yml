@@ -1,0 +1,8 @@
+---
+- name: Install cURL
+  become: true
+  when: ansible_os_family ==  "Debian"
+  apt:
+    name: curl
+    update_cache: yes
+    state: latest

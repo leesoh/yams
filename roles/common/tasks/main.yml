@@ -7,3 +7,5 @@
   tags: pip,common
 - include: screen.yml
   tags: screen,common
+- include: curl.yml
+  tags: curl,common
