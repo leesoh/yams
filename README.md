@@ -1,3 +1,6 @@
+# Project Abandoned
+While working through YAMS, I discovered Ansible Galaxy. This does essentially what YAMS aimed to do, but with the full force of RedHat behind it. I've moved most of the roles [there](https://galaxy.ansible.com/list#/roles?page=1&page_size=10&users=leesoh) but will be leaving this project up for the time being.
+
 # YAMS Framework
 Welcome to Yet Another Modular Security Framework. YAMS is a collection of Ansible roles, some hacky scripts, and a large amount of standing on the shoulders of giants.
 
